@@ -1,3 +1,5 @@
+//РРІР°РЅРѕРІР° РћР»РµСЃСЏ 14221
+
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -34,7 +36,7 @@ int main() {
 		
 		chislo %= numbers_of_e;
 		chislo *= 10;
-		int plus = content - '0';  // char - '0' - это перевод цифры в число
+		int plus = content - '0';  // char - '0' - ГЅГІГ® ГЇГҐГ°ГҐГўГ®Г¤ Г¶ГЁГґГ°Г» Гў Г·ГЁГ±Г«Г®
 		chislo += plus;
 
 
