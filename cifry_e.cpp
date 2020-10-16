@@ -1,14 +1,14 @@
 //Иванова Олеся 14221
 
 /*
-	B - îñíîâàíèå ñèñòåìû ñ÷èñëåíèÿ
-		B = 10 = > 1 ðàçðÿä
-		B = 100 = > 2 ðàçðÿäà
+	B - основание системы счисления
+		B = 10 = > 1 разряд
+		B = 100 = > 2 разряда
 
-		N - êîë - âî ðàçðÿäîâ ýêñïîíåíòû
-		K = N / log ïî îñíîâàíèþ 10 îò B - êîëâî ýëåìåíòîâ ìàññèâà
+		N - кол - во разрядов экспоненты
+		K = N / log по основанию 10 от B - колво элементов массива
 
-		e = 1 + Ñóììà áåñêîíå÷íîñòü k=1 (1/k);    1/k - uk
+		e = 1 + Сумма бесконечность k=1 (1/k);    1/k - uk
 
 		1/(k+1)! = 1/(k!)*1/(k+1)
 */
@@ -64,7 +64,7 @@ void Div(mytype* x, int d) {
 	mytype carry = 0, xi, q;
 	for (int i = 0; i < N; i++) {
 		xi = x[i] + carry * B;
-		q = xi / d;   // íå ïîíÿëà, ïî÷åìó âûñêàêèâàåò Unhandled exception Access violation reading location
+		q = xi / d;   // не поняла, почему выскакивает Unhandled exception Access violation reading location
 		carry = xi - q * d;
 		x[i] = q;
 	}
@@ -72,10 +72,10 @@ void Div(mytype* x, int d) {
 
 int main() {
 	SetData(K, uk, 1);
-	SetData(K, e, 1); //çàïîëíÿåò íóëÿìè
-	while (!IsZero(K, uk)) { //IsZero ñìîòðèò, âñå ëè ÷èñëà 0
+	SetData(K, e, 1); //заполняет нулями
+	while (!IsZero(K, uk)) { //IsZero смотрит, все ли числа 0
 		Add(e, uk, K); //e+uk
-		Div(uk, k); //äåëèò uk íà k
+		Div(uk, k); //делит uk на k
 		k++;
 	}
 }
