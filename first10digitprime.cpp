@@ -36,7 +36,7 @@ int main() {
 		
 		chislo %= numbers_of_e;
 		chislo *= 10;
-		int plus = content - '0';  // char - '0' - ýòî ïåðåâîä öèôðû â ÷èñëî
+		int plus = content - '0'; // char - '0' - это перевод цифры в число
 		chislo += plus;
 
 
