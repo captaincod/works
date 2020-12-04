@@ -6,11 +6,29 @@ using namespace std;
 
 double pi = atan(1) * 4;
 
+class Point {
+public:
+	int x;
+	int y;
+
+	Point(int _x, int _y) {
+		x = _x;
+		y = _y;
+	}
+};
+
 class Figure {
 public:
 	virtual double getArea() = 0;
 	virtual double getPerimeter() = 0;
 	virtual void print() = 0;
+	
+	double vector(const Point& A, const Point& B) const {
+		return  A.x * B.y - B.x * A.y;
+	}
+	Point get_vector(const Point& A, const Point& B) const {
+		return { B.x - A.x, B.y - A.y };
+	}
 };
 
 class Rectangle : public Figure {
@@ -88,21 +106,10 @@ public:
 
 class Polygon : public Figure {
 public:
-	int how_many_tops;
-	vector<pair<int, int>> tops;
-
-	Polygon() {
-		cout << "Enter how many tops in Polygon ";
-		cin >> how_many_tops;
-		if (how_many_tops > 0){
-			cout << "Enter the tops:" << endl;
-			for (int i = 0; i < how_many_tops; i++) {
-				int x, y;
-				cin >> x >> y;
-				pair <int, int> top(x,y);
-				tops.push_back(top);
-			}
-		}
+	int points_amount;
+	vector<Point> points;
+	Polygon(int amount) {
+		points_amount = amount;
 	}
 
 	double getPerimeter() {
@@ -119,18 +126,26 @@ public:
 		return 1;
 	}
 	double getArea() {
-		return 1;
+		double area = 0;
+
+		for (int i = 1; i < points_amount - 1; i++)
+			area += vector(get_vector(points[0], points[i]), get_vector(points[0], points[i + 1]));
+
+		return abs(area / 2.0);
 	}
 	void print() {
-		cout << "Polygon has " << how_many_tops << "tops" << endl;
+		cout << "Polygon has " << points_amount << "tops" << endl;
 		cout << "Tops: ";
-		for (int i = 0; i < how_many_tops; i++) {
-			cout << "( " << tops[i].first << ";" << tops[i].second << " ), " ;
+		for (int i = 0; i < points_amount; i++) {
+			cout << "( " << points[i].first << ";" << points[i].second << " ), " ;
 		}
 		cout << "Perimeter = " << getPerimeter() << endl;
 	}
 
+
 };
+
+
 
 int main() {
 	Triangle t(2,3,4);
