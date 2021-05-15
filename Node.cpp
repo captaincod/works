@@ -1,53 +1,27 @@
+#include <iostream>
+
 struct Node {
 	char data;
-	Node* left;
 	Node* right;
+	Node* left;
 
-	/*С лекции:
-	root = new_Node(data);
-	add(Node* node);
-	add(data);
-	*/
+	Node() {
+		data = NULL;
+		right = nullptr;
+		left = nullptr;
+	}
 
 };
 
 struct Tree {
 	Node* root;
-	/*С лекции:
-	add(Node* node);
-	add(data) {
-		Node* node = new Node(data);
-		if (root == None) {
-			root = node;
-		}
-	}
-	Node* current = root;
-	while (1){
-		if (current.data > data) {
-			current = left;
-		}
-		else if (current.data < data) {
-			current = right;
-		}
-		if (cuurent == None) {
-			current = node;
-		}
-	}*/
 };
 
-Node* init() {
-	Node* n = new Node();
-	n->left;
-	n->right;
-	n->data;
-	return n;
-}
-
 void insert(Node* node, char data) {
-	if (node == nullptr) {
+	if (node->data == NULL) {
 		node->data = data;
-		node->left = init();
-		node->right = init();
+		node->left = new Node();
+		node->right = new Node();
 	}
 	if (data <= node->data) {
 		insert(node->left, data);
