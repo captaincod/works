@@ -3,7 +3,7 @@ struct Node {
 	Node* left;
 	Node* right;
 
-	/*С лекции:
+	/*РЎ Р»РµРєС†РёРё:
 	root = new_Node(data);
 	add(Node* node);
 	add(data);
@@ -13,7 +13,7 @@ struct Node {
 
 struct Tree {
 	Node* root;
-	/*С лекции:
+	/*РЎ Р»РµРєС†РёРё:
 	add(Node* node);
 	add(data) {
 		Node* node = new Node(data);
